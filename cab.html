@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiruvonam Cab - Reliable Cab Services Across Tamil Nadu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .vehicle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .floating-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 50;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/+918220854415" class="floating-button bg-green-500 text-white p-4 rounded-full text-2xl hover:bg-green-600 transition">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="bg-yellow-500 rounded-full p-2 mr-3">
+                    <i class="fas fa-car text-white text-xl"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-800">
+                    <span class="text-yellow-600">Thiruvonam</span> Cab
+                </h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-800 hover:text-yellow-600 font-medium">Home</a>
+                <a href="#services" class="text-gray-800 hover:text-yellow-600 font-medium">Services</a>
+                <a href="#fleet" class="text-gray-800 hover:text-yellow-600 font-medium">Our Fleet</a>
+                <a href="#about" class="text-gray-800 hover:text-yellow-600 font-medium">About Us</a>
+                <a href="#contact" class="text-gray-800 hover:text-yellow-600 font-medium">Contact</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden bg-white shadow-lg md:hidden">
+            <div class="px-4 py-3 flex flex-col space-y-3">
+                <a href="#home" class="text-gray-800 hover:text-yellow-600 font-medium">Home</a>
+                <a href="#services" class="text-gray-800 hover:text-yellow-600 font-medium">Services</a>
+                <a href="#fleet" class="text-gray-800 hover:text-yellow-600 font-medium">Our Fleet</a>
+                <a href="#about" class="text-gray-800 hover:text-yellow-600 font-medium">About Us</a>
+                <a href="#contact" class="text-gray-800 hover:text-yellow-600 font-medium">Contact</a>
+                <a href="tel:+918220854415" class="bg-yellow-500 text-white py-2 px-4 rounded text-center font-medium hover:bg-yellow-600 transition">
+                    <i class="fas fa-phone-alt mr-2"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Reliable Cab Services Across <span class="text-yellow-400">Tamil Nadu</span></h1>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Experience comfortable and safe travel with Thiruvonam Cab. Serving Mayiladuthurai and all of Tamil Nadu with premium vehicles and professional drivers.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="tel:+918220854415" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                    <i class="fas fa-phone-alt mr-2"></i> Call Now
+                </a>
+                <a href="#contact" class="bg-white hover:bg-gray-100 text-gray-800 font-bold py-3 px-6 rounded-lg transition duration-300">
+                    <i class="fas fa-envelope mr-2"></i> Book Online
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Services</h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">We provide premium cab services for all your travel needs across Tamil Nadu and border areas.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="text-yellow-500 text-4xl mb-4">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Airport Transfers</h3>
+                    <p class="text-gray-600">Timely pickups and drops to all major airports in Tamil Nadu including Chennai, Trichy, and Madurai.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="text-yellow-500 text-4xl mb-4">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">City Tours</h3>
+                    <p class="text-gray-600">Explore Tamil Nadu's rich heritage with our guided city tours and temple visits.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="text-yellow-500 text-4xl mb-4">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Outstation Trips</h3>
+                    <p class="text-gray-600">Comfortable long-distance travel to any destination in Tamil Nadu and nearby states.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Section -->
+    <section id="fleet" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Fleet</h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">We maintain a small but premium fleet of vehicles for your comfort and safety.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="vehicle-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                    <div class="mb-4 overflow-hidden rounded-lg">
+                        <img src="suzuki.jpeg" alt="Maruti Suzuki" class="w-full h-48 object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">Maruti Suzuki</h3>
+                    <div class="flex items-center mb-3">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">4 Seater</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded ml-2">AC</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">Perfect for small groups or individuals looking for economical yet comfortable travel.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">₹13/km</span>
+                        <a href="#contact" class="text-yellow-600 hover:text-yellow-700 font-medium">
+                            Book Now <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="vehicle-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                    <div class="mb-4 overflow-hidden rounded-lg">
+                        <img src="innova2.jpg" alt="Toyota Innova" class="w-full h-48 object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">Toyota Innova</h3>
+                    <div class="flex items-center mb-3">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">7 Seater</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded ml-2">Premium AC</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">Spacious and luxurious vehicle ideal for families or larger groups traveling in comfort.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">₹18/km</span>
+                        <a href="#contact" class="text-yellow-600 hover:text-yellow-700 font-medium">
+                            Book Now <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="About Thiruvonam Cab" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">About Thiruvonam Cab</h2>
+                    <p class="text-gray-600 mb-4">Founded in Mayiladuthurai district, Thiruvonam Cab has been providing reliable transportation services across Tamil Nadu since 2015. We take pride in offering personalized service with our small fleet of well-maintained vehicles.</p>
+                    <p class="text-gray-600 mb-6">Our mission is to make your travel experience comfortable, safe, and memorable. Whether you're traveling for business or pleasure, our professional drivers will ensure you reach your destination on time and in comfort.</p>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-user text-yellow-500 mt-1"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium text-yellow-800">Meet Our Owner</h3>
+                                <div class="mt-2 text-sm text-yellow-700">
+                                    <p>Mr.K.Suresh Kumar, the owner of Thiruvonam Cab, personally oversees all operations to ensure the highest standards of service.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <div class="bg-yellow-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-check-circle text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">24/7 Service</h4>
+                                <p class="text-sm text-gray-600">Available round the clock</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-yellow-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-check-circle text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Experienced Drivers</h4>
+                                <p class="text-sm text-gray-600">Professional & courteous</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">What Our Customers Say</h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-500 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Excellent service from Thiruvonam Cab. The driver was punctual and the car was very clean. Will definitely use them again for my travels in Tamil Nadu."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gray-300 mr-3 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Rajesh Kumar</h4>
+                            <p class="text-sm text-gray-500">Chennai</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-500 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"We booked the Innova for a family trip to Kumbakonam. Very comfortable ride and reasonable rates. Suresh Kumar was very helpful in planning our itinerary."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gray-300 mr-3 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Priya Venkat</h4>
+                            <p class="text-sm text-gray-500">Coimbatore</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-500 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Reliable airport transfer service. The driver was waiting when my flight landed late at night. Clean car and safe driving. Highly recommended."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gray-300 mr-3 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Customer" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Arun Mohan</h4>
+                            <p class="text-sm text-gray-500">Trichy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Contact Us</h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Get in touch to book your cab or inquire about our services.</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md h-full">
+                        <h3 class="text-xl font-bold mb-6 text-gray-800">Book Your Ride</h3>
+                        <form id="booking-form" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500" required>
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email (Optional)</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500">
+                            </div>
+                            <div>
+                                <label for="vehicle" class="block text-sm font-medium text-gray-700 mb-1">Vehicle Type</label>
+                                <select id="vehicle" name="vehicle" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500" required>
+                                    <option value="">Select Vehicle</option>
+                                    <option value="Maruti Suzuki (4 Seater)">Maruti Suzuki (4 Seater)</option>
+                                    <option value="Toyota Innova (7 Seater)">Toyota Innova (7 Seater)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="date" class="block text-sm font-medium text-gray-700 mb-1">Pickup Date</label>
+                                <input type="date" id="date" name="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500" required>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Trip Details</label>
+                                <textarea id="message" name="message" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500" placeholder="Pickup location, destination, etc." required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                                Submit Booking Request
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md h-full">
+                        <h3 class="text-xl font-bold mb-6 text-gray-800">Our Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-yellow-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800 mb-1">Address</h4>
+                                    <p class="text-gray-600">Mayiladuthurai District, Tamil Nadu</p>
+                                    <p class="text-gray-600">Service available across Tamil Nadu and border areas</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone-alt text-yellow-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800 mb-1">Phone</h4>
+                                    <p class="text-gray-600">+91 8220854415</p>
+                                    <p class="text-gray-600">24/7 Customer Support</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-yellow-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800 mb-1">Email</h4>
+                                    <p class="text-gray-600">bookings@thiruvonamcab.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-clock text-yellow-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800 mb-1">Operating Hours</h4>
+                                    <p class="text-gray-600">24 hours, 7 days a week</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-medium text-gray-800 mb-3">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-gray-200 hover:bg-yellow-500 hover:text-white p-3 rounded-full transition">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-gray-200 hover:bg-yellow-500 hover:text-white p-3 rounded-full transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-gray-200 hover:bg-yellow-500 hover:text-white p-3 rounded-full transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.319789684251!2d79.6509753148036!3d10.76251899231959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3aaf578d4d3d85a7%3A0x4a3e6d6b8e7e4c2e!2sMayiladuthurai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-500 rounded-full p-2 mr-3">
+                            <i class="fas fa-car text-white"></i>
+                        </div>
+                        <h2 class="text-xl font-bold">
+                            <span class="text-yellow-400">Thiruvonam</span> Cab
+                        </h2>
+                    </div>
+                    <p class="text-gray-400 max-w-xs">Your reliable travel partner across Tamil Nadu. Comfort, safety, and professionalism in every ride.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-400 hover:text-yellow-400 transition">Home</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-yellow-400 transition">Services</a></li>
+                            <li><a href="#fleet" class="text-gray-400 hover:text-yellow-400 transition">Our Fleet</a></li>
+                            <li><a href="#about" class="text-gray-400 hover:text-yellow-400 transition">About Us</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-yellow-400 transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Services</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-yellow-400 transition">Airport Transfers</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-yellow-400 transition">City Tours</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-yellow-400 transition">Outstation Trips</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-yellow-400 transition">Corporate Travel</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-yellow-400 transition">Wedding Services</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-phone-alt text-yellow-400 mr-2"></i>
+                                <span class="text-gray-400">+91 8220854415</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope text-yellow-400 mr-2"></i>
+                                <span class="text-gray-400">bookings@thiruvonamcab.com</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-yellow-400 mr-2"></i>
+                                <span class="text-gray-400">Mayiladuthurai, Tamil Nadu</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Thiruvonam Cab. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-8 rounded-lg max-w-md w-full mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-green-500 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Booking Request Sent!</h3>
+                <p class="text-gray-600 mb-6">Thank you for choosing Thiruvonam Cab. We'll contact you shortly to confirm your booking details.</p>
+                <button id="close-modal" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-lg transition">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Booking form submission
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real application, you would send this data to your server
+            // For this demo, we'll just show the success modal
+            document.getElementById('success-modal').classList.remove('hidden');
+        });
+
+        // Close modal
+        document.getElementById('close-modal').addEventListener('click', function() {
+            document.getElementById('success-modal').classList.add('hidden');
+            document.getElementById('booking-form').reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (!document.getElementById('mobile-menu').classList.contains('hidden')) {
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
